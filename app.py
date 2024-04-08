@@ -1,4 +1,3 @@
-import requests
 import os
 from dotenv import load_dotenv
 
@@ -8,7 +7,6 @@ def configure():
 def main():
     configure()
     api_key = os.getenv('api_key')
-
 
 
 
