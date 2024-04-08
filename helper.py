@@ -17,7 +17,11 @@ def fetch_valuation(ticker, key):
         response.raise_for_status()
         data = response.json()
 
-        ticker = data[0]['symbol']
+        try:
+            ticker = data[0]['symbol']
+        except:
+            print(f'{ticker}, no data')
+            return
         value = round(float(data[0]['dcf']), 2)
         price = float(data[0]['Stock Price'])
         if price > value:
