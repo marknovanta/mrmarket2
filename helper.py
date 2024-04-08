@@ -20,7 +20,7 @@ def fetch_valuation(ticker, key):
         try:
             ticker = data[0]['symbol']
         except:
-            print(f'{ticker}, no data')
+            print(f'{ticker}: no data\n')
             return
         value = round(float(data[0]['dcf']), 2)
         price = float(data[0]['Stock Price'])
@@ -33,14 +33,12 @@ def fetch_valuation(ticker, key):
 
         value_offset = (price-value)/value
 
-        if valuation == 'Undervalued':
-            print(f'Ticke: {ticker}', '<-----')
-        else:
+        if valuation == 'Undervalued' and value_offset < -30:
             print(f'Ticke: {ticker}')
-        print(f'Price: ${price}')
-        print(f'Value: ${value}')
-        print(f'Stock is {valuation} of {round(value_offset*100,2)}%')
+            print(f'Price: ${price}')
+            print(f'Value: ${value}')
+            print(f'Stock is {valuation} of {round(value_offset*100,2)}%\n')
 
     except requests.exceptions.RequestException as e:
-        print('Error fetching data:', e)
+        print(f'{ticker}: error fetching data:', e, '\n')
         return None

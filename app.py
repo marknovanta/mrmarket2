@@ -10,6 +10,7 @@ def main():
     configure()
     api_key = os.getenv('api_key')
 
+    print()
     for t in tickers:
         fetch_valuation(t, api_key)
 
