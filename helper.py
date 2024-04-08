@@ -15,7 +15,28 @@ def fetch_valuation(ticker, key):
     try:
         response = requests.get(url)
         response.raise_for_status()
-        return response.json()
+        data = response.json()
+
+        ticker = data[0]['symbol']
+        value = round(float(data[0]['dcf']), 2)
+        price = float(data[0]['Stock Price'])
+        if price > value:
+            valuation = 'Overvalued'
+        elif price < value:
+            valuation = 'Undervalued'
+        else:
+            valuation = 'Fair Price'
+
+        value_offset = (price-value)/value
+
+        if valuation == 'Undervalued':
+            print(f'Ticke: {ticker}', '<-----')
+        else:
+            print(f'Ticke: {ticker}')
+        print(f'Price: ${price}')
+        print(f'Value: ${value}')
+        print(f'Stock is {valuation} of {round(value_offset*100,2)}%')
+
     except requests.exceptions.RequestException as e:
         print('Error fetching data:', e)
         return None
