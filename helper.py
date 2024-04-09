@@ -8,10 +8,20 @@ def fetch_cash_flow_data(ticker, key):
     data = r.json()
 
     # get last year free cash flow data
-    operating_cf = data['annualReports'][0]['operatingCashflow']
-    cap_ex = data['annualReports'][0]['capitalExpenditures']
-    fcf = float(operating_cf) - float(cap_ex)
-    print(fcf)
+    reports = data['annualReports']
+
+    fcf_records = []
+    for r in reports:
+
+        operating_cf = r['operatingCashflow']
+        cap_ex = r['capitalExpenditures']
+        fcf = float(operating_cf) - float(cap_ex)
+        print(fcf)
+        fcf_records.append(fcf)
+    fcf_records.reverse()
+    print(fcf_records)
+
+    return fcf_records
 
 
 
