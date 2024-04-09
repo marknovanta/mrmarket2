@@ -12,7 +12,7 @@ def main():
 
     print()
     for t in tickers:
-        records = get_intrinsic_value(t, api_key)
+        intrinsic_value = get_intrinsic_value(t, api_key)
 
 
 
