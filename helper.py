@@ -4,8 +4,13 @@ import requests
 
 def fetch_cash_flow_data(ticker, key):
     url = f'https://www.alphavantage.co/query?function=CASH_FLOW&symbol={ticker}&apikey={key}'
-    r = requests.get(url)
-    data = r.json()
+    try:
+        r = requests.get(url)
+        r.raise_for_status()
+        data = r.json()
+    except requests.exceptions.RequestException as e:
+        print('Error fetching data:', e)
+        return None
 
     # get last year free cash flow data
     reports = data['annualReports']
