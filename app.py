@@ -1,7 +1,7 @@
 import os
 from dotenv import load_dotenv
 from watchlist import tickers
-from helper import fetch_cash_flow_data, fetch_valuation
+from helper import fetch_cash_flow_data
 
 def configure():
     load_dotenv()
@@ -12,7 +12,7 @@ def main():
 
     print()
     for t in tickers:
-        fetch_valuation(t, api_key)
+        fetch_cash_flow_data(t, api_key)
 
 
 
