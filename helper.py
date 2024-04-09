@@ -25,9 +25,21 @@ def fetch_cash_flow_data(ticker, key):
 
 
 
+def hist_cagr(records):
+    # calculate CAGR in the past x years
+    pass
 
+def project_cagr(rate):
+    # caluclate projected growth
+    pass
 
+def terminal_value(rate):
+    # calculate terminal value
+    pass
 
+def intrinsic_value(projected_growth, terminal_value, discount_rate):
+    # calculate intrinsic value
+    pass
 
 
 
