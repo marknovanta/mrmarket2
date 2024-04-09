@@ -33,7 +33,7 @@ def fetch_valuation(ticker, key):
 
         value_offset = (price-value)/value
 
-        if valuation == 'Undervalued' and value_offset < -30:
+        if valuation == 'Undervalued' and value_offset < -0.3:
             print(f'Ticke: {ticker}')
             print(f'Price: ${price}')
             print(f'Value: ${value}')
