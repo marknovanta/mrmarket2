@@ -1,3 +1,4 @@
+'''
 tickers = [
     'WPC',
     'NNN',
@@ -75,3 +76,7 @@ tickers = [
     'PARA',
     'MCO'
 ]
+'''
+
+# tester
+tickers = ['AAPL']

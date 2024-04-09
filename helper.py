@@ -1,5 +1,23 @@
 import requests
 
+
+
+def fetch_cash_flow_data(ticker, key):
+    url = f'https://www.alphavantage.co/query?function=CASH_FLOW&symbol={ticker}&apikey={key}'
+    r = requests.get(url)
+    data = r.json()
+
+    print(data)
+
+
+
+
+
+
+
+
+
+'''
 def fetch_cash_flow_data(ticker, key):
     url = f'https://financialmodelingprep.com/api/v3/cash-flow-statement/{ticker}?period=annual&apikey={key}'
     try:
@@ -9,6 +27,7 @@ def fetch_cash_flow_data(ticker, key):
     except requests.exceptions.RequestException as e:
         print('Error fetching data:', e)
         return None
+
 
 def fetch_valuation(ticker, key):
     url = f'https://financialmodelingprep.com/api/v3/discounted-cash-flow/{ticker}?apikey={key}'
@@ -42,3 +61,4 @@ def fetch_valuation(ticker, key):
     except requests.exceptions.RequestException as e:
         print(f'{ticker}: error fetching data:', e, '\n')
         return None
+'''
