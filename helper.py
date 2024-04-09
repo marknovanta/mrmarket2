@@ -27,7 +27,11 @@ def fetch_cash_flow_data(ticker, key):
 
 def hist_cagr(records):
     # calculate CAGR in the past x years
-    pass
+    period = len(records)-1
+    start_value = records[0]
+    end_value = records[-1]
+    cagr = ((end_value/start_value)**(1/period))-1
+    return cagr
 
 def project_cagr(rate):
     # caluclate projected growth
