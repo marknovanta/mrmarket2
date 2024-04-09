@@ -11,12 +11,17 @@ def main():
     configure()
     api_key = os.getenv('api_key')
 
-    print()
     for t in tickers:
         intrinsic_value = get_intrinsic_value(t, api_key)
         stock = yf.Ticker(t)
         mkt_cap = stock.info['marketCap']
-        print(mkt_cap)
+        print(f'\n{t} ---')
+        print(f'INTRINSIC VALUE: ${intrinsic_value:,}')
+        print(f'MARKET CAP: ${mkt_cap:,}')
+        if intrinsic_value is None:
+            print(f'{t}: Not able to calculate')
+            continue
+
 
 
 

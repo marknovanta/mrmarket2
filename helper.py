@@ -21,10 +21,10 @@ def get_intrinsic_value(ticker, key):
         operating_cf = r['operatingCashflow']
         cap_ex = r['capitalExpenditures']
         fcf = float(operating_cf) - float(cap_ex)
-        print(fcf)
+
         fcf_records.append(fcf)
     fcf_records.reverse()
-    print(fcf_records)
+
 
 
     # calculate CAGR in the past x years
