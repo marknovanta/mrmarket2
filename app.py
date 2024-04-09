@@ -1,7 +1,7 @@
 import os
 from dotenv import load_dotenv
 from watchlist import tickers
-from helper import fetch_cash_flow_data, hist_cagr
+from helper import get_intrinsic_value
 
 def configure():
     load_dotenv()
@@ -12,8 +12,7 @@ def main():
 
     print()
     for t in tickers:
-        records = fetch_cash_flow_data(t, api_key)
-        cagr = hist_cagr(records)
+        records = get_intrinsic_value(t, api_key)
 
 
 

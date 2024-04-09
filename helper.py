@@ -2,7 +2,7 @@ import requests
 
 
 
-def fetch_cash_flow_data(ticker, key):
+def get_intrinsic_value(ticker, key):
     url = f'https://www.alphavantage.co/query?function=CASH_FLOW&symbol={ticker}&apikey={key}'
     try:
         r = requests.get(url)
@@ -26,29 +26,20 @@ def fetch_cash_flow_data(ticker, key):
     fcf_records.reverse()
     print(fcf_records)
 
-    return fcf_records
 
-
-
-def hist_cagr(records):
     # calculate CAGR in the past x years
-    period = len(records)-1
-    start_value = records[0]
-    end_value = records[-1]
+    period = len(fcf_records)-1
+    start_value = fcf_records[0]
+    end_value = fcf_records[-1]
     cagr = ((end_value/start_value)**(1/period))-1
-    return cagr
+    print(cagr)
 
-def project_cagr(rate):
     # caluclate projected growth
-    pass
-
-def terminal_value(rate):
     # calculate terminal value
-    pass
-
-def intrinsic_value(projected_growth, terminal_value, discount_rate):
     # calculate intrinsic value
-    pass
+
+
+
 
 
 
