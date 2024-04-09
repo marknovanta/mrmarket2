@@ -18,10 +18,22 @@ def main():
         print(f'\n{t} ---')
         print(f'INTRINSIC VALUE: ${intrinsic_value:,}')
         print(f'MARKET CAP: ${mkt_cap:,}')
+
+        # check if intrinsic value is not None
         if intrinsic_value is None:
             print(f'{t}: Not able to calculate')
             continue
 
+        # evaluate
+        if mkt_cap > intrinsic_value:
+            valuation = 'Overvalued'
+        elif mkt_cap < intrinsic_value:
+            valuation = 'Undervalued'
+        else:
+            valuation = 'Fair Value'
+
+        margin_of_safety = (mkt_cap - intrinsic_value)/intrinsic_value
+        print(f'{t} is {valuation} of {round((margin_of_safety*100), 2)}%')
 
 
 
