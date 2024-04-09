@@ -7,7 +7,11 @@ def fetch_cash_flow_data(ticker, key):
     r = requests.get(url)
     data = r.json()
 
-    print(data)
+    # get last year free cash flow data
+    operating_cf = data['annualReports'][0]['operatingCashflow']
+    cap_ex = data['annualReports'][0]['capitalExpenditures']
+    fcf = float(operating_cf) - float(cap_ex)
+    print(fcf)
 
 
 
