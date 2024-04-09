@@ -15,14 +15,14 @@ def main():
         intrinsic_value = get_intrinsic_value(t, api_key)
         stock = yf.Ticker(t)
         mkt_cap = stock.info['marketCap']
-        print(f'\n{t} ---')
-        print(f'INTRINSIC VALUE: ${intrinsic_value:,}')
-        print(f'MARKET CAP: ${mkt_cap:,}')
 
         # check if intrinsic value is not None
         if intrinsic_value is None:
             print(f'{t}: Not able to calculate')
             continue
+
+        print(f'INTRINSIC VALUE: ${intrinsic_value:,}')
+        print(f'MARKET CAP: ${mkt_cap:,}')
 
         # evaluate
         if mkt_cap > intrinsic_value:

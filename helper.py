@@ -13,7 +13,13 @@ def get_intrinsic_value(ticker, key):
         return None
 
     # get last year free cash flow data
-    reports = data['annualReports']
+    try:
+        reports = data['annualReports']
+    except:
+        print('\n')
+        print(data['Information'])
+        print('\n')
+        return None
 
     fcf_records = []
     for r in reports:
@@ -31,7 +37,11 @@ def get_intrinsic_value(ticker, key):
     period = len(fcf_records)-1
     start_value = fcf_records[0]
     end_value = fcf_records[-1]
-    cagr = ((end_value/start_value)**(1/period))-1
+
+    # CAGR (evaluate if smooth it by x%, add the decimal percentage at the end)
+    cagr = (((end_value/start_value)**(1/period))-1)*0.90
+    print(f'\n{ticker} ---')
+    print(f'CAGR: {round((cagr*100), 2)}%')
 
     current = fcf_records[-1]
     year1 = current * (1 + cagr)**1
