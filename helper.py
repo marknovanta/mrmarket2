@@ -38,10 +38,15 @@ def get_intrinsic_value(ticker, key):
     start_value = fcf_records[0]
     end_value = fcf_records[-1]
 
-    # CAGR (evaluate if smooth it by x%, add the decimal percentage at the end)
-    cagr = (((end_value/start_value)**(1/period))-1)*0.90
+    # CAGR
+    cagr = (((end_value/start_value)**(1/period))-1)
+
+    # smooth down difficult to sustain CAGRs
+    if cagr > 0.1:
+        cagr = cagr*0.9
+
     print(f'\n{ticker} ---')
-    print(cagr)
+
     try:
         print(f'CAGR: {round((cagr*100), 2)}%')
     except:
