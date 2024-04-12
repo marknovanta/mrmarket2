@@ -41,9 +41,6 @@ def get_intrinsic_value(ticker, key):
     # CAGR
     cagr = (((end_value/start_value)**(1/period))-1)
 
-    # smooth down difficult to sustain CAGRs
-    if cagr > 0.1:
-        cagr = cagr*0.9
 
     print(f'\n{ticker} ---')
 
@@ -53,6 +50,10 @@ def get_intrinsic_value(ticker, key):
         print('Problem with CAGR. Set default')
         cagr = 0.02
         print(f'CAGR: {round((cagr*100), 2)}%')
+
+    # smooth down difficult to sustain CAGRs
+    if cagr > 0.1:
+        cagr = cagr*0.9
 
     current = fcf_records[-1]
     year1 = current * (1 + cagr)**1
