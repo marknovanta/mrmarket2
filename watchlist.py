@@ -27,4 +27,4 @@ tickers = [
 ]
 
 # tester
-#tickers = ['AAPL']
+#tickers = ['MA', 'COST', 'GOOGL', 'AMZN', 'AVGO']

@@ -26,7 +26,10 @@ def get_intrinsic_value(ticker, key):
 
         operating_cf = r['operatingCashflow']
         cap_ex = r['capitalExpenditures']
-        fcf = float(operating_cf) - float(cap_ex)
+        try:
+            fcf = float(operating_cf) - float(cap_ex)
+        except:
+            return None
 
         fcf_records.append(fcf)
     fcf_records.reverse()
