@@ -1,3 +1,4 @@
+# All tickers in the list
 tickers = [
     'BLK',
     'KO',
@@ -26,5 +27,9 @@ tickers = [
     'AVGO'
 ]
 
-# tester
-#tickers = ['MA', 'COST', 'GOOGL', 'AMZN', 'AVGO']
+
+# Specific tickers to check
+#tickers = []
+
+# Tester tickers
+#tickers = ['AAPL']
