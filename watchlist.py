@@ -1,5 +1,5 @@
 # All tickers in the list
-tickers = [
+""" tickers = [
     'BLK',
     'KO',
     'JNJ',
@@ -25,11 +25,11 @@ tickers = [
     'GOOGL',
     'AMZN',
     'AVGO'
-]
+] """
 
 
 # Specific tickers to check
-#tickers = []
+tickers = ['HRL']
 
 # Tester tickers
 #tickers = ['AAPL']
