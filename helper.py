@@ -71,7 +71,7 @@ def get_intrinsic_value(ticker, key):
     year10 = current * (1 + cagr)**10
 
     # DISCOUNT RATE
-    discount_rate = 0.1
+    discount_rate = 0.07
 
     year1_present = year1/(1 + discount_rate)**1
     year2_present = year2/(1 + discount_rate)**2
